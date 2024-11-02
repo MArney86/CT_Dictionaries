@@ -1,3 +1,5 @@
+#Task 1:
+
 def display_menu(menu): #a function to display the menu with nice text
     print("\n\033[7m\033[4mOUR MENU\033[0m") #Menu Heading
     for category, items in menu.items(): #iterate through the outermost layer of the dictionary
@@ -20,6 +22,12 @@ def add_category(menu, category): #a fuction to add a menu category
     else: #category already in menu
         print(f"The {category} category is already in the menu") #notify the user of category already existing
 
+def add_item(menu, category, item, price):
+    if item in menu[category].keys():
+        print(f"the item {item} already exists in the {category} category")
+    else:
+        menu[category][item] = price
+
 def remove_item(menu, category, item): #a function to remove a menu item from the menu
     if category in menu and item in menu[category]: #verify that the chose category exists and the item exists there first
         del menu[category][item] #delete the chosen item from the chosen category
@@ -37,6 +45,8 @@ restaurant_menu = { #provided menu to start with
 
 display_menu(restaurant_menu) #display initial menu
 add_category(restaurant_menu, 'Beverages') #add the Beverage Category
+add_item(restaurant_menu, 'Beverages', 'Soda', 2.49)
+add_item(restaurant_menu, 'Beverages', 'Sparkling Water', 2.99)
 update_price(restaurant_menu, 'Main Course', 'Steak', 17.99) #change the price of Steak in the Main Course category to 17.99
 remove_item(restaurant_menu, 'Starters', 'Bruschetta') #remove Bruschetta from the Starters category 
 display_menu(restaurant_menu) #display resulting menu

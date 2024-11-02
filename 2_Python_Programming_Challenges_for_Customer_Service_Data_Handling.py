@@ -1,3 +1,5 @@
+#Task 1:
+
 def new_service_ticket(tickets,ticket_id): #a function to add a new service ticket to the dictionary
     if ticket_id not in tickets: #verify that the chosen ticketid doesn't already exist in the dictionary
         tickets[ticket_id] = {} #add a new (empty) ticket id to the dictionary
